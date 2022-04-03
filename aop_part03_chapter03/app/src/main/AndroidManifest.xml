@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aop_part03_chapter03">
         <activity
+            android:name=".DiaryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Aop_part03_chapter03.NoActionBar"/>
+        <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.Aop_part03_chapter03.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Aop_part03_chapter03.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
