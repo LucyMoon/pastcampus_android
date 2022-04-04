@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">aop-part02-chapter02</string>
-    <string name="addnum">번호 추가하기</string>
-    <string name="clear">초기화</string>
-    <string name="autorun">자동 생성 시작</string>
-</resources>
