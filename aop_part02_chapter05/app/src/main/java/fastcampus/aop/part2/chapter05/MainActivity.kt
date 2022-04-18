@@ -63,6 +63,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun initStartPhotoFrameModeButton() {
+        startPhotoFrameModeButton.setOnClickListener {
+            val intent = Intent(this, PhotoFrameActivity::class.java)
+            imageUriList.forEachIndexed { index, uri ->
+                intent.putExtra("photo$index", uri.toString())
+            }
+            intent.putExtra("photoListSize", imageUriList.size)
+            startActivity(intent)
+        }
+    }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -93,16 +104,16 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(resultCode != Activity.RESULT_OK) {
+        if (resultCode != Activity.RESULT_OK) {
             return
         }
 
-        when(requestCode){
+        when (requestCode) {
             2000 -> {
                 val selectedImageUri: Uri? = data?.data
 
-                if(selectedImageUri != null){
-                    if(imageUriList.size == 6){
+                if (selectedImageUri != null) {
+                    if (imageUriList.size == 6) {
                         Toast.makeText(this, "이미 사진이 꽉 찼습니다.", Toast.LENGTH_SHORT).show()
                         return
                     }
@@ -129,9 +140,5 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButton("취소하기") { _, _ -> }
             .create()
             .show()
-    }
-
-    private fun initStartPhotoFrameModeButton() {
-
     }
 }
