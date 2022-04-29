@@ -13,6 +13,7 @@
         android:theme="@style/Theme.Aop_part2_chapter05">
         <activity
             android:name=".PhotoFrameActivity"
+            android:screenOrientation="landscape"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
